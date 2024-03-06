@@ -12,23 +12,51 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    <nav class="navigation__container">
-        <a href="index.html">Home</a>
-        <a href="#">News</a>
-        <div>
-            <button>
-                Items<i class="fa-solid fa-chevron-down"></i>
+    <nav class="navigation__container" id="nav-bar">
+        <a class="navigation__link navigation__link_burger-menu activate_sidebar">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </a>
+
+        <a class="navigation__link navigation__link_active" href="index.html">Home</a>
+        <a class="navigation__link navigation__link_hidden" href="#">News</a>
+        <div class="dropdown navigation__link_hidden" id="menu-drop" >
+            <button class="navigation__link dropdown__button" onclick="menuDropdown()">
+                Items <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <ul>
-                <a href="#">Item 1</a>
-                <a href="#">Item 2</a>
-                <a href="#">Item 3</a>
-            </ul>
+            <div class="dropdown__content">
+                <a class="navigation__link dropdown__link" href="#">Item 1</a>
+                <a class="navigation__link dropdown__link" href="#">Item 2</a>
+                <a class="navigation__link dropdown__link" href="#">Item 3</a>
+            </div>
         </div>
-        <a href="#">Gallery</a>
-        <a href="#">Contact</a>
-        <a><i class="fa-solid fa-bars-staggered"></i></a>
+
+
+        <a class="navigation__link navigation__link_hidden" href="#">Gallery</a>
+        <a class="navigation__link navigation__link_hidden" href="#">Contact</a>
+        <a class="navigation__link navigation__link_burger-menu activate_dropdown" onclick="burgerDropdown()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </a>
     </nav>
+
+    <script>
+        function burgerDropdown() {
+            let burger = document.getElementById("nav-bar")
+            if (burger.className === "navigation__container") {
+                burger.className += " responsive";
+            } else {
+                burger.className = "navigation__container";
+            }
+            
+        }
+
+        function menuDropdown() {
+            let menu = documentc.getElementById("menu-drop")
+            if (menu.className === "dropdown") {
+                menu.className += " responsive";
+            } else {
+                menu.className = "dropdown"
+            }
+    </script>
     
 </body>
 </html>

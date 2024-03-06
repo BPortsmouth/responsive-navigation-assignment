@@ -1,1 +1,161 @@
 @use 'fonts';
+
+body{
+    width: 100lvw;
+    height: 100lvh;
+    font: fonts.$main-font;
+    background-color: #90A955;
+    color: #132A13;
+}
+
+
+.navigation{
+    &__container{
+        width: 100%;
+        background-color: #4F772D;
+        max-height: max-content;
+        height: 5.05rem;
+    }
+
+    &__link{
+        text-decoration: none;
+        color: inherit;
+        padding: 1.1rem;
+        border-radius: 10px;
+        float: left;
+        margin-right: 1rem;
+        cursor: pointer;
+
+        &_active{
+            background-color: #90A955;
+            border-radius: 10px 10px 0 0;
+        }
+
+        &_burger-menu{
+            display: none;
+            border-radius: 0;
+        }
+        &:hover{
+            background-color: #132A13;
+            color: #90A955;
+        }
+
+    }
+
+}
+
+.dropdown{
+    float: left;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    .navigation__link{
+        margin: 0;
+    }
+    &__button{
+        background-color: #4F772D;
+        border: none;
+        font: fonts.$main-font;
+        position: inherit;
+    }
+
+    &__content{
+        display: none;
+        background-color: #4F772D;
+        border-radius: 0 0 10px 10px;
+    }
+
+    &__link{
+        margin: 0;
+    }
+
+    &:hover{
+        .dropdown__content{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+
+
+.fa-chevron-down{
+    font-size: 32px;
+}
+
+@media screen and (max-width:1000px) {
+    .navigation{
+        &__container{
+            width: max-content;
+            float: left;
+        }
+    }
+    
+}
+
+
+
+@media screen and (max-width:800px) {
+    body{
+        font-size: 24px;
+    }
+    .navigation{
+        &__container{
+            height: 3rem;
+        }
+        &__link, &__dropdown{
+            padding: 0.6rem;
+            margin: 0;
+        }
+        &__link{
+            &_hidden{
+                display: none;
+                border-radius: 0;
+            }
+            &_active{
+                position: absolute;
+                border-radius: 0;
+                top: 1px;
+                left: 0;
+            }
+        }
+        
+    }
+
+    .dropdown .navigation__link, .dropdown__content{
+        border-radius: 0;
+    }
+    .responsive{
+        position: relative;
+    }
+    .responsive .navigation__link_hidden, .responsive .navigation__link_active{
+        float: none;
+        display: block;
+        text-align: left;
+
+    }
+    .responsive .navigation__link_hidden{
+        transform: translateY(3rem);
+    }
+
+    .responsive .dropdown{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .fa-chevron-down{
+        font-size: 18px;
+    }
+    
+
+    .activate_dropdown{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+    }
+}
