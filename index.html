@@ -13,9 +13,7 @@
 </head>
 <body>
     <nav class="navigation__container" id="nav-bar">
-        <a class="navigation__link navigation__link_burger-menu activate_sidebar">
-            <i class="fa-solid fa-bars-staggered"></i>
-        </a>
+
 
         <a class="navigation__link navigation__link_active" href="index.html">Home</a>
         <a class="navigation__link navigation__link_hidden" href="#">News</a>
@@ -33,29 +31,22 @@
 
         <a class="navigation__link navigation__link_hidden" href="#">Gallery</a>
         <a class="navigation__link navigation__link_hidden" href="#">Contact</a>
-        <a class="navigation__link navigation__link_burger-menu activate_dropdown" onclick="burgerDropdown()">
+        <a class="navigation__link navigation__link_burger-menu activate_dropdown" onclick="burgerInteract()">
             <i class="fa-solid fa-bars-staggered"></i>
         </a>
     </nav>
 
     <script>
-        function burgerDropdown() {
+        function burgerInteract() {
             let burger = document.getElementById("nav-bar")
             if (burger.className === "navigation__container") {
                 burger.className += " responsive";
             } else {
                 burger.className = "navigation__container";
-            }
-            
+            }  
         }
+    
 
-        function menuDropdown() {
-            let menu = documentc.getElementById("menu-drop")
-            if (menu.className === "dropdown") {
-                menu.className += " responsive";
-            } else {
-                menu.className = "dropdown"
-            }
     </script>
     
 </body>
